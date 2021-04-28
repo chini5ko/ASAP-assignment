@@ -17,7 +17,7 @@ https://asap-swe-hw.herokuapp.com
  python -m pytest
 ```
 
-## others command lines
+## other command lines
 
 ```
  source venv/bin/activate
