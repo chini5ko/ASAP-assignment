@@ -13,7 +13,8 @@ def index():
 
 @app.route('/member_id', methods=['POST'])
 def member_id():
-    print("member_id")
+
+    # check if there is first_name....
 
     # generate id
     json_data = request.get_json()
