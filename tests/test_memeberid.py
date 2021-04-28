@@ -34,6 +34,20 @@ def test_generate_member_id(client):
     assert response.json['country'] == "Venezuela"
 
 
+def test_generate_member_id_with_wrong_first_name_field(client):
+    data = {
+        "firstName": "hector",
+        "last_name": "liang",
+        "dob": "01/01/1961",
+        "country": "Venezuela"
+    }
+    url = '/member_id'
+
+    response = client.post(url, json=data)
+    assert response.status_code == 400
+    assert response.json['message'] == "the first_name field is missing"
+
+
 def test_validate_member_id(client):
     data = {
         "first_name": "hector",
@@ -64,9 +78,9 @@ def test_invalid_member_id(client):
     url = 'member_id/validate'
 
     response = client.post(url, content_type='multipart/form-data', data={
-        'member_id': "123-456-789",
+        'member_id': "43195906",
     })
     assert response.content_type == 'text/html; charset=utf-8'
     assert response.status_code == 200
 
-    assert response.data == b"Sorry, the 123-456-789 is not registered in ASAP database<br>Please contac ASAP. Email: info@asylumadvocacy.org "
+    assert response.data == b"Sorry, the 43195906 is not registered in ASAP database<br>Please contac ASAP. Email: info@asylumadvocacy.org "

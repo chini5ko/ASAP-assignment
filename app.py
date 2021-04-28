@@ -15,10 +15,31 @@ def index():
 def member_id():
 
     # check if there is first_name....
-
-    # generate id
     json_data = request.get_json()
-    id = str(uuid.uuid4())
+
+    if "first_name" not in json_data:
+        error = {"message": "the first_name field is missing"}
+        return error, 400
+
+    if "last_name" not in json_data:
+        error = {"message": "the last_name is missing"}
+        return error, 400
+
+    if "dob" not in json_data:
+        error = {"message": "the dob (date of birth) field is missing"}
+        return error, 400
+
+    if "country" not in json_data:
+        error = {"message": "the country field is missing"}
+        return error, 400
+
+    # generate unique id
+    is_unique = False
+    while not is_unique:
+        id_val = uuid.uuid4().int & (1 << 32)-1
+        id = str(id_val)
+        if id not in members_id_db:
+            is_unique = True
 
     # save it in the memeber object
     members_id_db[id] = json_data
