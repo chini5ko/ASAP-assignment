@@ -70,7 +70,7 @@ def test_validate_member_id(client):
     assert response.status_code == 200
 
     assert response.data == b"The " + \
-        member_id.encode('UTF-8') + " is valid".encode('UTF-8')
+        member_id.encode('UTF-8') + " is valid member id".encode('UTF-8')
 
 
 def test_invalid_member_id(client):

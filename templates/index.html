@@ -4,18 +4,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ASAP ~ SWE</title>
+    <style>
+        body {
+          background-color: linen;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+         
+        }
+
+        #form{
+            grid-column: 2/3;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            margin: 100px;
+        }
+        
+        input{
+            margin: 5px;
+        }
+
+        h1{
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        </style>
 </head>
 <body>
 
-<div>
 
-    <form action="/member_id/validate" method="post">
+    
+    <form id="form" action="/member_id/validate" method="post">
+        <h1>Insert memeber Id:</h1>
         <input type="text" name="member_id">
         <input type="submit">
     </form>
 
 
-</div>
+
 
 </body>
 </html>

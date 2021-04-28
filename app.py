@@ -55,7 +55,7 @@ def get_member_id():
     else:
         member_id = request.form['member_id']
         if member_id in members_id_db:
-            return "The " + member_id + " is valid"
+            return "The " + member_id + " is valid member id"
         else:
             message = "Sorry, the " + member_id + " is not registered in ASAP database"
             message += "<br>Please contac ASAP. Email: info@asylumadvocacy.org "
