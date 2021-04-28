@@ -14,7 +14,7 @@
  python -m pytest
 ```
 
-## others command line
+## others command lines
 
 ```
  source venv/bin/activate
